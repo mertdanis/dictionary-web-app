@@ -11,16 +11,22 @@ function ContentMain() {
 
       <div className="flex flex-col gap-6">
         <p>Meaning</p>
-        <ul>
+        <ul className="">
           {data[0]?.meanings[0]?.definitions.map((a) => {
             return (
-              <li className=" p-3" key={a.definition}>
-                {a.definition}
-              </li>
+              <div key={data[0]?.meanings} className="flex items-center ">
+                <p className="h-[5px] w-[5px] rounded-full bg-mainPurple"></p>
+                <li
+                  className="p-3 border-b-2 font-medium text-bodyM"
+                  key={a.definition}
+                >
+                  {a.definition}
+                </li>
+              </div>
             );
           })}
         </ul>
-        <div className="flex gap-6  p-3">
+        <div className="flex gap-6  pt-3">
           <p className="text-mainDarkGray text-headingS">Synoyms</p>{" "}
           <p className="text-mainPurple text-headingS font-bold">
             {data[0]?.meanings[0]?.synonyms}

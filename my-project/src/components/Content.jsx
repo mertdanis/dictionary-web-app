@@ -6,7 +6,7 @@ import ContentTop from "./ContentTop";
 
 function Content() {
   return (
-    <div>
+    <div className="">
       <ContentTop />
       <ContentMain />
     </div>

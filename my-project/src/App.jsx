@@ -4,21 +4,26 @@ import Content from "./components/Content";
 
 import { useData } from "./store/Context";
 
+import Loader from "./ui/Loader";
+
 function App() {
-  const { dispatch } = useData();
+  const { dispatch, isLoading } = useData();
 
   return (
-    <div className="flex flex-col items-center">
-      <Header />
-      <Input
-        onChange={(e) => {
-          dispatch({
-            type: "inputValue",
-            payload: e.target.value,
-          });
-        }}
-      />
-      <Content />
+    <div className="flex flex-col justify-center items-center  h-screen">
+      {isLoading && <Loader />}
+      <div className="flex flex-col w-1/3">
+        <Header />
+        <Input
+          onChange={(e) => {
+            dispatch({
+              type: "inputValue",
+              payload: e.target.value,
+            });
+          }}
+        />
+        <Content />
+      </div>
     </div>
   );
 }
