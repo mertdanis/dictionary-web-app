@@ -1,7 +1,6 @@
 import Header from "./components/Header";
 import Input from "./components/Input";
-import ContentTop from "./components/ContentTop";
-import ContentMain from "./components/ContentMain";
+import Content from "./components/Content";
 
 import { useData } from "./store/Context";
 
@@ -9,7 +8,7 @@ function App() {
   const { dispatch } = useData();
 
   return (
-    <div>
+    <div className="flex flex-col items-center">
       <Header />
       <Input
         onChange={(e) => {
@@ -19,8 +18,7 @@ function App() {
           });
         }}
       />
-      <ContentTop />
-      <ContentMain />
+      <Content />
     </div>
   );
 }

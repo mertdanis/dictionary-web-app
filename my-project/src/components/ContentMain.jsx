@@ -1,28 +1,48 @@
-import React from "react";
+import { useData } from "../store/Context";
+
+import Title from "./Title";
 
 function ContentMain() {
+  const { data } = useData();
+
   return (
     <div>
-      <p>noun</p>
-      <div className="">
+      <Title>{data[0]?.meanings[0]?.partOfSpeech}</Title>
+
+      <div className="flex flex-col gap-6">
         <p>Meaning</p>
         <ul>
-          <li>1</li>
-          <li>2</li>
-          <li>3</li>
+          {data[0]?.meanings[0]?.definitions.map((a) => {
+            return (
+              <li className=" p-3" key={a.definition}>
+                {a.definition}
+              </li>
+            );
+          })}
         </ul>
-        <p>Synoyms</p> <p>electrinoc keyboard</p>
+        <div className="flex gap-6  p-3">
+          <p className="text-mainDarkGray text-headingS">Synoyms</p>{" "}
+          <p className="text-mainPurple text-headingS font-bold">
+            {data[0]?.meanings[0]?.synonyms}
+          </p>
+        </div>
       </div>
 
-      <p>verb</p>
+      <Title>{data[0]?.meanings[1]?.partOfSpeech}</Title>
+
       <p>Meaning</p>
       <ul>
-        <li>1</li>
+        {data[0]?.meanings[1]?.definitions.map((a) => {
+          return <li key={a.definition}>{a.definition}</li>;
+        })}
       </ul>
 
       <div className="flex gap-6">
-        <p>source:</p>
-        <p>link</p>
+        <p>source:</p>{" "}
+        <a target="blank" href={`${data[0]?.sourceUrls[0]}`}>
+          {data[0]?.sourceUrls[0]}
+        </a>
+        <img src="/public/imgs/icon-new-window.svg" alt="new window svg" />
       </div>
     </div>
   );

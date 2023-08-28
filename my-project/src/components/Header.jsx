@@ -2,17 +2,11 @@ import React from "react";
 
 function Header() {
   return (
-    <div className="flex justify-between">
+    <div className="flex justify-between p-6 gap-6">
       <img className="cursor-pointer" src="/public/imgs/logo.svg" alt="" />
       <div className="flex gap-6">
-        <select name="" id="">
-          <option value="sans">Sans Serif</option>
-          <option value="serif">Serif</option>
-          <option value="mono">Mono</option>
-        </select>
-
-        <div className="cursor-pointer">
-          <p>Dark Mode</p>
+        <div className="cursor-pointer flex">
+          <img src="/public/imgs/icon-moon.svg" alt="" />
         </div>
       </div>
     </div>

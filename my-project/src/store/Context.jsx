@@ -7,7 +7,7 @@ const MainProvider = createContext();
 const initialState = {
   data: [],
 
-  inputWord: "",
+  inputWord: "keyboard",
   isLoading: null,
 };
 
@@ -45,8 +45,6 @@ function MainContext({ children }) {
     initialState
   );
 
-  const controller = new AbortController();
-
   useEffect(() => {
     const fetchData = async () => {
       dispatch({
@@ -54,12 +52,9 @@ function MainContext({ children }) {
       });
       try {
         const res = await axios.get(
-          `https://api.dictionaryapi.dev/api/v2/entries/en/${inputWord}`,
-          {
-            signal: controller.signal,
-          }
+          `https://api.dictionaryapi.dev/api/v2/entries/en/${inputWord}`
         );
-        controller.abort();
+
         dispatch({
           type: "data",
           payload: res.data,
