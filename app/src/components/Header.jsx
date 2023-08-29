@@ -3,8 +3,6 @@ import { useData } from "../store/Context";
 function Header() {
   const { data, dispatch, currentTheme } = useData();
 
-  console.log(currentTheme);
-
   return (
     <div className="flex justify-between p-6 gap-6">
       <img className="cursor-pointer" src="/public/imgs/logo.svg" alt="" />
@@ -15,12 +13,12 @@ function Header() {
               type: "changeTheme",
             });
           }}
-          className="cursor-pointer flex"
+          className="cursor-pointer flex  items-center"
         >
           {currentTheme === "light" ? (
-            <img src="/public/imgs/icon-moon.svg" alt="moon" />
+            <i class="fa-solid fa-lightbulb fa-2xl"></i>
           ) : (
-            <img src="/public/imgs/icons8-sun.svg" alt="sun" />
+            <i class="fa-regular fa-lightbulb fa-2xl"></i>
           )}
         </div>
       </div>

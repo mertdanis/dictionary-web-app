@@ -1,30 +1,41 @@
 import { useData } from "../store/Context";
 
 function Input({ onChange, className, value }) {
-  const { dispatch } = useData();
-
-  console.log(value);
+  const { dispatch, error } = useData();
 
   return (
     <div className="relative w-full">
-      <input
-        value={value}
-        className="p-6 bg-mainLightGray text-mainLightBlack2 font-bold  rounded-xl w-full   "
-        type="text"
-        placeholder="Search for any word..."
-        onChange={onChange}
-      />
-      <img
-        onClick={() => {
-          dispatch({
-            type: "fetchData",
-            payload: value,
-          });
-        }}
-        className="absolute top-5 right-5 h-8 cursor-pointer"
-        src="/public/imgs/icon-search.svg"
-        alt="search icon"
-      />
+      <form action="submit">
+        <input
+          required
+          value={value}
+          className="p-6 mt-6 bg-mainLightGray text-mainLightBlack2 font-bold   rounded-xl w-full focus:outline-mainPurple "
+          type="text"
+          placeholder="Search for any word..."
+          onChange={onChange}
+        />
+
+        <button
+          onClick={(e) => {
+            if (value === "") return;
+            e.preventDefault();
+
+            dispatch({
+              type: "fetchData",
+              payload: value,
+            });
+          }}
+        >
+          <img
+            onClick={() => {
+              if (value === "") return;
+            }}
+            className="absolute top-12 right-5 h-6 cursor-pointer"
+            src="/public/imgs/icon-search.svg"
+            alt="search icon"
+          />
+        </button>
+      </form>
     </div>
   );
 }

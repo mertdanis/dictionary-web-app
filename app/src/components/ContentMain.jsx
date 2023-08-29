@@ -12,15 +12,15 @@ function ContentMain() {
       <div className="flex flex-col gap-6">
         <p>Meaning</p>
         <ul className="">
-          {data[0]?.meanings[0]?.definitions.map((a) => {
+          {data[0]?.meanings[0]?.definitions.map((noun, index) => {
             return (
-              <div key={data[0]?.meanings} className="flex items-center ">
+              <div className="flex items-center ">
                 <p className="h-[5px] w-[5px] rounded-full bg-mainPurple"></p>
                 <li
-                  className="p-3 border-b-2 font-medium text-bodyM"
-                  key={a.definition}
+                  key={noun.definition}
+                  className="p-3  font-medium text-bodyM"
                 >
-                  {a.definition}
+                  {noun.definition}
                 </li>
               </div>
             );
@@ -38,17 +38,20 @@ function ContentMain() {
 
       <p>Meaning</p>
       <ul>
-        {data[0]?.meanings[1]?.definitions.map((a) => {
-          return <li key={a.definition}>{a.definition}</li>;
+        {data[0]?.meanings[1]?.definitions.map((verb, index) => {
+          return <li key={verb.definition}>{verb.definition}</li>;
         })}
       </ul>
 
-      <div className="flex gap-6">
-        <p>source:</p>{" "}
+      <div className="flex gap-3 items-center border-t-2 py-3">
+        <p>Source</p> <p> {data[0]?.sourceUrls[0]}</p>
         <a target="blank" href={`${data[0]?.sourceUrls[0]}`}>
-          {data[0]?.sourceUrls[0]}
+          <img
+            className="h-[14px] w-[14px] cursor-pointer"
+            src="/public/imgs/icon-new-window.svg"
+            alt="new window svg"
+          />
         </a>
-        <img src="/public/imgs/icon-new-window.svg" alt="new window svg" />
       </div>
     </div>
   );

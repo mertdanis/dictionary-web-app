@@ -14,7 +14,7 @@ function ContentTop() {
 
   return (
     <div className="flex justify-between  p-6 items-center">
-      <div className="flex flex-col gap-6">
+      <div className="flex flex-col gap-6 my-6">
         <h2 className="text-6xl text-text__color font-bold">{data[0]?.word}</h2>
         <p className="text-purple-500 font-medium text-headingM">
           {data[0]?.phonetic}
