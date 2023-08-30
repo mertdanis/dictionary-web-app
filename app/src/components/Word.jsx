@@ -1,7 +1,7 @@
 import { useData } from "../store/Context";
 import { getNotfSound } from "../ui/Audio";
 
-function ContentTop() {
+function Word() {
   const { data } = useData();
 
   const audio = data[0]?.phonetics.find((a) => {
@@ -13,7 +13,7 @@ function ContentTop() {
   const audioUrl = audio?.audio;
 
   return (
-    <div className="flex justify-between  p-6 items-center">
+    <div className="flex justify-between  py-6 items-center">
       <div className="flex flex-col gap-6 my-6">
         <h2 className="text-6xl text-text__color font-bold">{data[0]?.word}</h2>
         <p className="text-purple-500 font-medium text-headingM">
@@ -32,4 +32,4 @@ function ContentTop() {
   );
 }
 
-export default ContentTop;
+export default Word;

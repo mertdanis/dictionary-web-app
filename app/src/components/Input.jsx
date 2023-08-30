@@ -1,7 +1,7 @@
 import { useData } from "../store/Context";
 
-function Input({ onChange, className, value }) {
-  const { dispatch, error } = useData();
+function Input({ onChange, className, value, setWord }) {
+  const { dispatch } = useData();
 
   return (
     <div className="relative w-full">
@@ -19,7 +19,7 @@ function Input({ onChange, className, value }) {
           onClick={(e) => {
             if (value === "") return;
             e.preventDefault();
-
+            setWord("");
             dispatch({
               type: "fetchData",
               payload: value,

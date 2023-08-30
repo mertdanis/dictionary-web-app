@@ -39,6 +39,7 @@ function MainContext({ children }) {
         return {
           ...state,
           desiredWord: action.payload,
+          notFound: false,
         };
 
       case "changeTheme":

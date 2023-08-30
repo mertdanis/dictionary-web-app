@@ -1,7 +1,7 @@
 import { useData } from "../store/Context";
 
 function Header() {
-  const { data, dispatch, currentTheme } = useData();
+  const { dispatch, currentTheme } = useData();
 
   return (
     <div className="flex justify-between p-6 gap-6">
@@ -16,9 +16,9 @@ function Header() {
           className="cursor-pointer flex  items-center"
         >
           {currentTheme === "light" ? (
-            <i class="fa-solid fa-lightbulb fa-2xl"></i>
+            <i className="fa-solid fa-lightbulb fa-2xl"></i>
           ) : (
-            <i class="fa-regular fa-lightbulb fa-2xl"></i>
+            <i className="fa-regular fa-lightbulb fa-2xl"></i>
           )}
         </div>
       </div>

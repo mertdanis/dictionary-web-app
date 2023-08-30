@@ -1,8 +1,8 @@
 import React from "react";
 
 import { useData } from "../store/Context";
-import ContentMain from "./ContentMain";
-import ContentTop from "./ContentTop";
+import ContentMain from "./ContentMainList";
+import ContentTop from "./Word";
 
 function Content() {
   return (

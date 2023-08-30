@@ -9,8 +9,8 @@ function Loader() {
         radius="9"
         color="black"
         ariaLabel="loading"
-        wrapperStyle
-        wrapperClass
+        $wrapperStyle
+        $wrapperClass
       />
     </div>
   );

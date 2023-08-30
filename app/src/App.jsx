@@ -15,11 +15,12 @@ function App() {
   const [word, setWord] = useState("");
 
   return (
-    <div className="flex flex-col text-text__color  bg-body__background items-center pt-6  h-screen">
-      <div className="flex flex-col w-1/3">
+    <div className="flex flex-col text-text__color  bg-body__background items-center py-6  h-full">
+      <div className="flex flex-col w-5/12">
         <Theme />
         <Header />
         <Input
+          setWord={setWord}
           value={word}
           onChange={(e) => {
             setWord(e.target.value);
