@@ -1,22 +1,17 @@
 import { useData } from "../store/Context";
-
 import Title from "./Title";
-
 import ContentComp from "./ContentComponent";
-
 import Synonym from "./Synonym";
 
 function ContentMainList() {
   const { data } = useData();
 
-  console.log(data);
-
   return (
     <div>
       <Title>{data[0]?.meanings[0]?.partOfSpeech}</Title>
 
-      <div className="flex flex-col ">
-        <p className="font-medium text-headingS text-mainDarkGra mb-6">
+      <div className="flex flex-col  ">
+        <p className="font-medium text-headingS text-mainDarkGray mb-6">
           Meaning
         </p>
 
@@ -35,10 +30,12 @@ function ContentMainList() {
       </div>
 
       <Title>{data[0]?.meanings[1]?.partOfSpeech}</Title>
-      <p className="font-medium text-headingS text-mainDarkGra mb-6">Meaning</p>
+      <p className="font-medium text-headingS text-mainDarkGray mb-6">
+        Meaning
+      </p>
 
-      {data[0]?.meanings[1]?.definitions.map((verb, index) => {
-        return <ContentComp data={verb} index={index} />;
+      {data[0]?.meanings[1]?.definitions.map((content, index) => {
+        return <ContentComp data={content} index={index} />;
       })}
 
       <div className="flex gap-3 items-center justify-center border-t-[1px]  py-3">

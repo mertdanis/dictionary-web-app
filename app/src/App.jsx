@@ -16,7 +16,7 @@ function App() {
 
   return (
     <div className="flex flex-col text-text__color  bg-body__background items-center py-6  h-full">
-      <div className="flex flex-col w-5/12">
+      <div className="flex flex-col sm:w-5/12 w-10/12">
         <Theme />
         <Header />
         <Input
